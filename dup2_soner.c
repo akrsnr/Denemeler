@@ -1,3 +1,24 @@
+/*
+    dup2(ilk param, ikinci param) 
+    ilk parametreyi klonluyor.
+    nasıl klonluyor?
+    ikinci parametre de artık ilk parametrenin inodeunu gosteriyor.
+    
+    ---
+    redirect ikinci param to the first param using dup2
+    ---
+    
+    The file id of file_descriptor 0 is 10
+    The file id of file_descriptor 3 is 998
+    After dup2()...
+    The file id of file_descriptor 0 is 10
+    The file id of file_descriptor 3 is 10
+    The file descriptors are different, but they
+    point to the same file, which is different than
+    the file that the second file_descriptor originally pointed to.
+
+*/
+
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
